@@ -3,262 +3,1944 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Тату-студия — авторские татуировки, минимализм, надписи, графика и флористика.">
-  <title>TATTOO — Авторская тату-студия</title>
+
+  <meta
+    name="description"
+    content="LELKINO TATOO — авторские татуировки, индивидуальные эскизы, минимализм, надписи, графика и флористика."
+  >
+
+  <meta name="theme-color" content="#161319">
+
+  <title>LELKINO TATOO — Авторская тату-студия</title>
+
+  <!-- ================================
+       FONTS
+  ================================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- ================================
+       MAIN CSS
+  ================================= -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- ================================
+       EXTRA ANIMATION
+       Можно оставить прямо здесь.
+       Основной style.css трогать не нужно.
+  ================================= -->
+  <style>
+
+    /* ==================================
+       PAGE INTRO
+    ================================== */
+
+    body {
+      opacity: 0;
+      animation: pageAppear 1.1s ease forwards;
+    }
+
+    @keyframes pageAppear {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    /* ==================================
+       ANIMATED BACKGROUND
+    ================================== */
+
+    body::before {
+      content: "";
+      position: fixed;
+      z-index: -10;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(161, 90, 166, .10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 85% 70%,
+          rgba(217, 180, 223, .08),
+          transparent 30%
+        );
+
+      animation: backgroundMove 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes backgroundMove {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.08);
+      }
+    }
+
+
+    /* ==================================
+       DECORATIVE LIGHTS
+    ================================== */
+
+    .floating-light {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+
+      border-radius: 50%;
+
+      background: radial-gradient(
+        circle,
+        rgba(161, 90, 166, .14),
+        transparent 70%
+      );
+
+      filter: blur(20px);
+
+      pointer-events: none;
+
+      z-index: -5;
+
+      animation: floatingLight 16s ease-in-out infinite;
+    }
+
+    .floating-light.one {
+      top: 10%;
+      left: -120px;
+    }
+
+    .floating-light.two {
+      bottom: 5%;
+      right: -100px;
+
+      animation-delay: -7s;
+      animation-duration: 20s;
+    }
+
+    @keyframes floatingLight {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate3d(100px, 60px, 0) scale(1.2);
+      }
+
+      100% {
+        transform: translate3d(-40px, -30px, 0) scale(.95);
+      }
+    }
+
+
+    /* ==================================
+       PARTICLES
+    ================================== */
+
+    .particles {
+      position: fixed;
+      inset: 0;
+
+      z-index: -4;
+
+      pointer-events: none;
+
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+
+      width: 3px;
+      height: 3px;
+
+      border-radius: 50%;
+
+      background: rgba(217, 180, 223, .5);
+
+      box-shadow:
+        0 0 10px rgba(217, 180, 223, .35);
+
+      animation:
+        particleFloat linear infinite;
+    }
+
+    .particle:nth-child(1) {
+      left: 8%;
+      top: 80%;
+      animation-duration: 12s;
+    }
+
+    .particle:nth-child(2) {
+      left: 17%;
+      top: 60%;
+      animation-duration: 16s;
+      animation-delay: -4s;
+    }
+
+    .particle:nth-child(3) {
+      left: 31%;
+      top: 90%;
+      animation-duration: 14s;
+      animation-delay: -8s;
+    }
+
+    .particle:nth-child(4) {
+      left: 48%;
+      top: 70%;
+      animation-duration: 18s;
+      animation-delay: -3s;
+    }
+
+    .particle:nth-child(5) {
+      left: 63%;
+      top: 85%;
+      animation-duration: 13s;
+      animation-delay: -5s;
+    }
+
+    .particle:nth-child(6) {
+      left: 74%;
+      top: 65%;
+      animation-duration: 17s;
+      animation-delay: -9s;
+    }
+
+    .particle:nth-child(7) {
+      left: 87%;
+      top: 82%;
+      animation-duration: 15s;
+      animation-delay: -2s;
+    }
+
+    .particle:nth-child(8) {
+      left: 94%;
+      top: 50%;
+      animation-duration: 20s;
+      animation-delay: -10s;
+    }
+
+    @keyframes particleFloat {
+      0% {
+        transform:
+          translateY(100px)
+          translateX(0)
+          scale(.5);
+
+        opacity: 0;
+      }
+
+      15% {
+        opacity: .8;
+      }
+
+      50% {
+        transform:
+          translateY(-350px)
+          translateX(60px)
+          scale(1);
+      }
+
+      85% {
+        opacity: .5;
+      }
+
+      100% {
+        transform:
+          translateY(-700px)
+          translateX(-40px)
+          scale(.2);
+
+        opacity: 0;
+      }
+    }
+
+
+    /* ==================================
+       BRAND
+    ================================== */
+
+    .brand {
+      position: relative;
+
+      transition:
+        transform .4s ease,
+        letter-spacing .4s ease;
+    }
+
+    .brand:hover {
+      transform: translateY(-2px);
+
+      letter-spacing: .28em;
+    }
+
+    .brand span {
+      transition: color .4s ease;
+    }
+
+    .brand:hover span {
+      color: #ffffff;
+    }
+
+
+    /* ==================================
+       NAVIGATION ANIMATION
+    ================================== */
+
+    .nav-links a {
+      position: relative;
+      transition:
+        color .3s ease,
+        transform .3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -7px;
+
+      height: 1px;
+
+      background: var(--accent);
+
+      transform: scaleX(0);
+
+      transform-origin: center;
+
+      transition: transform .3s ease;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+
+    /* ==================================
+       HERO
+    ================================== */
+
+    .hero {
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: -10%;
+
+      background:
+        radial-gradient(
+          circle at 75% 40%,
+          rgba(161, 90, 166, .22),
+          transparent 30%
+        );
+
+      animation: heroGlow 9s ease-in-out infinite alternate;
+
+      pointer-events: none;
+    }
+
+    @keyframes heroGlow {
+      from {
+        transform: scale(1);
+        opacity: .45;
+      }
+
+      to {
+        transform: scale(1.2);
+        opacity: .8;
+      }
+    }
+
+    .hero-content {
+      animation: heroContentAppear 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+
+    @keyframes heroContentAppear {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      animation:
+        titleAppear 1.4s cubic-bezier(.2,.8,.2,1);
+    }
+
+    @keyframes titleAppear {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+
+    /* ==================================
+       HERO SCROLL
+    ================================== */
+
+    .hero-scroll {
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: .65;
+      }
+
+      50% {
+        transform: translateY(8px);
+        opacity: 1;
+      }
+    }
+
+
+    /* ==================================
+       BUTTONS
+    ================================== */
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -120%;
+
+      width: 70%;
+      height: 100%;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+      );
+
+      transform: skewX(-20deg);
+
+      transition: left .7s ease;
+    }
+
+    .btn:hover::before {
+      left: 140%;
+    }
+
+
+    /* ==================================
+       SECTION APPEAR
+    ================================== */
+
+    .section {
+      position: relative;
+    }
+
+    .section::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 50%;
+
+      width: 1px;
+      height: 45px;
+
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--accent),
+        transparent
+      );
+
+      opacity: .25;
+    }
+
+
+    /* ==================================
+       ABOUT PHOTO
+    ================================== */
+
+    .about-photo {
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .about-photo img {
+      transition:
+        transform 1.2s cubic-bezier(.2,.8,.2,1),
+        filter .7s ease;
+    }
+
+    .about-photo:hover img {
+      transform: scale(1.045);
+      filter: grayscale(0%);
+    }
+
+
+    /* ==================================
+       STATS
+    ================================== */
+
+    .stats div {
+      transition:
+        transform .35s ease,
+        padding-left .35s ease;
+    }
+
+    .stats div:hover {
+      transform: translateY(-5px);
+      padding-left: 7px;
+    }
+
+
+    /* ==================================
+       GALLERY
+    ================================== */
+
+    .gallery-item {
+      transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 25px 60px rgba(0,0,0,.35),
+        0 0 0 1px rgba(217,180,223,.12);
+    }
+
+    .gallery-item img {
+      transition:
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        filter .7s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.09);
+      filter: brightness(1.08);
+    }
+
+
+    /* ==================================
+       STYLE LIST
+    ================================== */
+
+    .style-list article {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .style-list article::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      width: 3px;
+
+      background: var(--accent);
+
+      transform: scaleY(0);
+
+      transform-origin: bottom;
+
+      transition: transform .4s ease;
+    }
+
+    .style-list article:hover::before {
+      transform: scaleY(1);
+    }
+
+
+    /* ==================================
+       STUDIO
+    ================================== */
+
+    .studio {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .studio::after {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -250px;
+      top: 20%;
+
+      border-radius: 50%;
+
+      background: radial-gradient(
+        circle,
+        rgba(161,90,166,.14),
+        transparent 70%
+      );
+
+      animation: studioGlow 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes studioGlow {
+      from {
+        transform: translateY(-40px);
+      }
+
+      to {
+        transform: translateY(80px);
+      }
+    }
+
+    .studio-photos img {
+      transition:
+        transform .8s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease;
+    }
+
+    .studio-photos img:hover {
+      transform: translateY(-8px) scale(1.02);
+
+      box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+    }
+
+
+    /* ==================================
+       REVIEWS
+    ================================== */
+
+    .review-card {
+      transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-9px);
+
+      box-shadow:
+        0 25px 55px rgba(30,22,31,.12);
+    }
+
+
+    /* ==================================
+       CTA
+    ================================== */
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before,
+    .cta::after {
+      content: "";
+
+      position: absolute;
+
+      border-radius: 50%;
+
+      pointer-events: none;
+    }
+
+    .cta::before {
+      width: 450px;
+      height: 450px;
+
+      left: -220px;
+      top: -180px;
+
+      background: radial-gradient(
+        circle,
+        rgba(217,180,223,.13),
+        transparent 70%
+      );
+
+      animation: ctaFloat 10s ease-in-out infinite alternate;
+    }
+
+    .cta::after {
+      width: 500px;
+      height: 500px;
+
+      right: -250px;
+      bottom: -250px;
+
+      background: radial-gradient(
+        circle,
+        rgba(161,90,166,.18),
+        transparent 70%
+      );
+
+      animation: ctaFloat 13s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes ctaFloat {
+      from {
+        transform: translate(0,0) scale(1);
+      }
+
+      to {
+        transform: translate(80px,40px) scale(1.2);
+      }
+    }
+
+
+    /* ==================================
+       MODAL
+    ================================== */
+
+    .modal-box {
+      animation:
+        modalEnter .45s cubic-bezier(.2,.8,.2,1);
+    }
+
+    @keyframes modalEnter {
+      from {
+        opacity: 0;
+        transform:
+          translateY(35px)
+          scale(.94);
+        filter: blur(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          translateY(0)
+          scale(1);
+        filter: blur(0);
+      }
+    }
+
+
+    /* ==================================
+       LIGHTBOX
+    ================================== */
+
+    .lightbox img {
+      animation:
+        lightboxImage .6s cubic-bezier(.2,.8,.2,1);
+    }
+
+    @keyframes lightboxImage {
+      from {
+        opacity: 0;
+        transform: scale(.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+
+    /* ==================================
+       MOBILE
+    ================================== */
+
+    @media (max-width: 620px) {
+
+      .floating-light {
+        width: 180px;
+        height: 180px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.5rem, 17vw, 5rem);
+      }
+
+      .particle {
+        opacity: .5;
+      }
+
+    }
+
+    /* ==================================
+       REDUCED MOTION
+    ================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+    }
+
+  </style>
 </head>
+
 <body>
 
+  <!-- ==================================
+       DECORATIVE BACKGROUND
+  ================================== -->
+
+  <div class="floating-light one"></div>
+  <div class="floating-light two"></div>
+
+  <div class="particles">
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+  </div>
+
+
+  <!-- ==================================
+       HEADER
+  ================================== -->
+
   <header class="header" id="top">
+
     <div class="container nav">
-      <a class="brand" href="#top">TAT<span>TOO</span></a>
-      <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+
+      <a class="brand" href="#top">
+        LELKINO <span>TATOO</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        aria-label="Открыть меню"
+      >
+        ☰
+      </button>
+
       <nav class="nav-links">
-        <a href="#about">О мастере</a>
-        <a href="#works">Работы</a>
-        <a href="#styles">Стили</a>
-        <a href="#studio">Студия</a>
-        <a href="#reviews">Отзывы</a>
+
+        <a href="#about">
+          О мастере
+        </a>
+
+        <a href="#works">
+          Работы
+        </a>
+
+        <a href="#styles">
+          Стили
+        </a>
+
+        <a href="#studio">
+          Студия
+        </a>
+
+        <a href="#reviews">
+          Отзывы
+        </a>
+
       </nav>
-      <button class="btn btn-small open-booking">Записаться</button>
+
+      <button class="btn btn-small open-booking">
+        Записаться
+      </button>
+
     </div>
+
   </header>
 
+
+  <!-- ==================================
+       MAIN
+  ================================== -->
+
   <main>
+
+
+    <!-- ==================================
+         HERO
+    ================================== -->
+
     <section class="hero">
+
       <div class="hero-overlay"></div>
+
       <div class="container hero-content">
-        <p class="eyebrow">Авторская татуировка</p>
-        <h1>Твоя история.<br><em>Твой стиль.</em></h1>
-        <p class="hero-text">Создаю татуировки, которые становятся частью тебя — от тонких надписей до графики и нежной флористики.</p>
+
+        <p class="eyebrow">
+          LELKINO TATOO
+        </p>
+
+        <h1>
+          Твоя история.<br>
+          <em>Твой стиль.</em>
+        </h1>
+
+        <p class="hero-text">
+          Авторские татуировки, созданные специально для тебя.
+          От тонких надписей до графики, минимализма
+          и нежной флористики.
+        </p>
+
         <div class="hero-actions">
-          <button class="btn open-booking">Записаться на сеанс</button>
-          <a class="btn btn-ghost" href="#works">Смотреть работы</a>
+
+          <button class="btn open-booking">
+            Записаться на сеанс
+          </button>
+
+          <a
+            class="btn btn-ghost"
+            href="#works"
+          >
+            Смотреть работы
+          </a>
+
         </div>
+
       </div>
-      <div class="hero-scroll">листай вниз <span>↓</span></div>
+
+      <div class="hero-scroll">
+        листай вниз
+        <span>↓</span>
+      </div>
+
     </section>
 
-    <section class="about section" id="about">
+
+    <!-- ==================================
+         ABOUT
+    ================================== -->
+
+    <section
+      class="about section"
+      id="about"
+    >
+
       <div class="container about-grid">
+
         <div class="about-photo reveal">
-          <img src="assets/images/artist-studio.jpg" alt="Тату-мастер в студии">
+
+          <img
+            src="assets/images/artist-studio.jpg"
+            alt="Тату-мастер в студии"
+          >
+
         </div>
+
+
         <div class="about-content reveal">
-          <p class="eyebrow">О мастере</p>
-          <h2>Татуировка — это<br><em>искусство на коже.</em></h2>
-          <p>Я создаю индивидуальные эскизы и помогаю превратить вашу идею в татуировку, которая будет радовать вас долгие годы.</p>
-          <p>Для меня важны чистота линий, гармоничная композиция и внимательное отношение к каждой детали.</p>
+
+          <p class="eyebrow">
+            О мастере
+          </p>
+
+          <h2>
+            Татуировка — это<br>
+            <em>искусство на коже.</em>
+          </h2>
+
+          <p>
+            Я создаю индивидуальные эскизы и помогаю
+            превратить вашу идею в татуировку,
+            которая будет радовать вас долгие годы.
+          </p>
+
+          <p>
+            Для меня важны чистота линий,
+            гармоничная композиция и внимательное
+            отношение к каждой детали.
+          </p>
+
+
           <div class="stats">
-            <div><strong>01</strong><span>индивидуальный подход</span></div>
-            <div><strong>100%</strong><span>стерильность и безопасность</span></div>
-            <div><strong>∞</strong><span>идей для вдохновения</span></div>
+
+            <div>
+              <strong>01</strong>
+              <span>
+                индивидуальный подход
+              </span>
+            </div>
+
+            <div>
+              <strong>100%</strong>
+              <span>
+                стерильность и безопасность
+              </span>
+            </div>
+
+            <div>
+              <strong>∞</strong>
+              <span>
+                идей для вдохновения
+              </span>
+            </div>
+
           </div>
-          <button class="text-link open-booking">Обсудить идею <span>→</span></button>
+
+
+          <button class="text-link open-booking">
+            Обсудить идею
+            <span>→</span>
+          </button>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="works section section-dark" id="works">
+
+    <!-- ==================================
+         WORKS
+    ================================== -->
+
+    <section
+      class="works section section-dark"
+      id="works"
+    >
+
       <div class="container">
+
         <div class="section-heading reveal">
+
           <div>
-            <p class="eyebrow">Портфолио</p>
-            <h2>Мои <em>работы</em></h2>
+
+            <p class="eyebrow">
+              Портфолио
+            </p>
+
+            <h2>
+              Мои <em>работы</em>
+            </h2>
+
           </div>
-          <p>Нажмите на фотографию, чтобы рассмотреть работу ближе.</p>
+
+          <p>
+            Нажмите на фотографию,
+            чтобы рассмотреть работу ближе.
+          </p>
+
         </div>
+
 
         <div class="gallery">
-          <button class="gallery-item large" data-full="assets/images/tattoo-lion.jpg" data-caption="Графика — лев">
-            <img src="assets/images/tattoo-lion.jpg" alt="Татуировка льва">
-            <span>Графика</span>
+
+
+          <button
+            class="gallery-item large"
+            data-full="assets/images/tattoo-lion.jpg"
+            data-caption="Графика — лев"
+          >
+
+            <img
+              src="assets/images/tattoo-lion.jpg"
+              alt="Татуировка льва"
+            >
+
+            <span>
+              Графика
+            </span>
+
           </button>
-          <button class="gallery-item" data-full="assets/images/tattoo-lettering-1.jpg" data-caption="Тонкая надпись">
-            <img src="assets/images/tattoo-lettering-1.jpg" alt="Татуировка с надписью">
-            <span>Надписи</span>
+
+
+          <button
+            class="gallery-item"
+            data-full="assets/images/tattoo-lettering-1.jpg"
+            data-caption="Тонкая надпись"
+          >
+
+            <img
+              src="assets/images/tattoo-lettering-1.jpg"
+              alt="Татуировка с надписью"
+            >
+
+            <span>
+              Надписи
+            </span>
+
           </button>
-          <button class="gallery-item" data-full="assets/images/tattoo-flower-1.jpg" data-caption="Флористика">
-            <img src="assets/images/tattoo-flower-1.jpg" alt="Цветочная татуировка">
-            <span>Флористика</span>
+
+
+          <button
+            class="gallery-item"
+            data-full="assets/images/tattoo-flower-1.jpg"
+            data-caption="Флористика"
+          >
+
+            <img
+              src="assets/images/tattoo-flower-1.jpg"
+              alt="Цветочная татуировка"
+            >
+
+            <span>
+              Флористика
+            </span>
+
           </button>
-          <button class="gallery-item" data-full="assets/images/tattoo-logo-chest.jpg" data-caption="Индивидуальный дизайн">
-            <img src="assets/images/tattoo-logo-chest.jpg" alt="Татуировка на груди">
-            <span>Индивидуальный дизайн</span>
+
+
+          <button
+            class="gallery-item"
+            data-full="assets/images/tattoo-logo-chest.jpg"
+            data-caption="Индивидуальный дизайн"
+          >
+
+            <img
+              src="assets/images/tattoo-logo-chest.jpg"
+              alt="Татуировка на груди"
+            >
+
+            <span>
+              Индивидуальный дизайн
+            </span>
+
           </button>
-          <button class="gallery-item wide" data-full="assets/images/tattoo-flower-2.jpg" data-caption="Флористика — композиция">
-            <img src="assets/images/tattoo-flower-2.jpg" alt="Цветочная татуировка на плече">
-            <span>Флористика</span>
+
+
+          <button
+            class="gallery-item wide"
+            data-full="assets/images/tattoo-flower-2.jpg"
+            data-caption="Флористика — композиция"
+          >
+
+            <img
+              src="assets/images/tattoo-flower-2.jpg"
+              alt="Цветочная татуировка на плече"
+            >
+
+            <span>
+              Флористика
+            </span>
+
           </button>
-          <button class="gallery-item" data-full="assets/images/tattoo-teacup.jpg" data-caption="Минималистичная татуировка">
-            <img src="assets/images/tattoo-teacup.jpg" alt="Минималистичная татуировка чашки">
-            <span>Минимализм</span>
+
+
+          <button
+            class="gallery-item"
+            data-full="assets/images/tattoo-teacup.jpg"
+            data-caption="Минималистичная татуировка"
+          >
+
+            <img
+              src="assets/images/tattoo-teacup.jpg"
+              alt="Минималистичная татуировка чашки"
+            >
+
+            <span>
+              Минимализм
+            </span>
+
           </button>
-          <button class="gallery-item" data-full="assets/images/tattoo-lettering-2.jpg" data-caption="Надпись">
-            <img src="assets/images/tattoo-lettering-2.jpg" alt="Татуировка с надписью на руке">
-            <span>Надписи</span>
+
+
+          <button
+            class="gallery-item"
+            data-full="assets/images/tattoo-lettering-2.jpg"
+            data-caption="Надпись"
+          >
+
+            <img
+              src="assets/images/tattoo-lettering-2.jpg"
+              alt="Татуировка с надписью на руке"
+            >
+
+            <span>
+              Надписи
+            </span>
+
           </button>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="styles section" id="styles">
+
+    <!-- ==================================
+         STYLES
+    ================================== -->
+
+    <section
+      class="styles section"
+      id="styles"
+    >
+
       <div class="container">
+
         <div class="section-heading reveal">
+
           <div>
-            <p class="eyebrow">Направления</p>
-            <h2>Твой <em>стиль</em></h2>
+
+            <p class="eyebrow">
+              Направления
+            </p>
+
+            <h2>
+              Твой <em>стиль</em>
+            </h2>
+
           </div>
+
         </div>
+
 
         <div class="style-list reveal">
-          <article><span>01</span><h3>Минимализм</h3><p>Лёгкие линии, маленькие символы и аккуратные детали.</p></article>
-          <article><span>02</span><h3>Надписи</h3><p>Имена, важные фразы и индивидуальный подбор шрифта.</p></article>
-          <article><span>03</span><h3>Флористика</h3><p>Цветы и растительные композиции, повторяющие линии тела.</p></article>
-          <article><span>04</span><h3>Графика</h3><p>Контрастные, выразительные и детализированные работы.</p></article>
+
+
+          <article>
+
+            <span>
+              01
+            </span>
+
+            <h3>
+              Минимализм
+            </h3>
+
+            <p>
+              Лёгкие линии, маленькие символы
+              и аккуратные детали.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              02
+            </span>
+
+            <h3>
+              Надписи
+            </h3>
+
+            <p>
+              Имена, важные фразы
+              и индивидуальный подбор шрифта.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              03
+            </span>
+
+            <h3>
+              Флористика
+            </h3>
+
+            <p>
+              Цветы и растительные композиции,
+              повторяющие линии тела.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              04
+            </span>
+
+            <h3>
+              Графика
+            </h3>
+
+            <p>
+              Контрастные, выразительные
+              и детализированные работы.
+            </p>
+
+          </article>
+
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="studio section section-dark" id="studio">
+
+    <!-- ==================================
+         STUDIO
+    ================================== -->
+
+    <section
+      class="studio section section-dark"
+      id="studio"
+    >
+
       <div class="container studio-grid">
+
+
         <div class="studio-content reveal">
-          <p class="eyebrow">Моё пространство</p>
-          <h2>Комфорт.<br><em>Чистота. Атмосфера.</em></h2>
-          <p>Уютное рабочее пространство, где соблюдаются правила гигиены и создаётся спокойная атмосфера для каждого клиента.</p>
-          <button class="btn open-booking">Записаться</button>
+
+          <p class="eyebrow">
+            Моё пространство
+          </p>
+
+          <h2>
+            Комфорт.<br>
+            <em>Чистота. Атмосфера.</em>
+          </h2>
+
+          <p>
+            Уютное рабочее пространство,
+            где соблюдаются правила гигиены
+            и создаётся спокойная атмосфера
+            для каждого клиента.
+          </p>
+
+          <button class="btn open-booking">
+            Записаться
+          </button>
+
         </div>
+
+
         <div class="studio-photos reveal">
-          <img class="studio-main" src="assets/images/studio-chair.jpg" alt="Рабочее место тату-мастера">
-          <img class="studio-small" src="assets/images/studio-logo.jpg" alt="Логотип тату-студии">
+
+          <img
+            class="studio-main"
+            src="assets/images/studio-chair.jpg"
+            alt="Рабочее место тату-мастера"
+          >
+
+          <img
+            class="studio-small"
+            src="assets/images/studio-logo.jpg"
+            alt="Логотип LELKINO TATOO"
+          >
+
         </div>
+
+
       </div>
+
     </section>
 
-    <section class="reviews section" id="reviews">
+
+    <!-- ==================================
+         REVIEWS
+    ================================== -->
+
+    <section
+      class="reviews section"
+      id="reviews"
+    >
+
       <div class="container">
+
+
         <div class="section-heading reveal">
+
           <div>
-            <p class="eyebrow">Отзывы клиентов</p>
-            <h2>Ваши <em>впечатления</em></h2>
+
+            <p class="eyebrow">
+              Отзывы клиентов
+            </p>
+
+            <h2>
+              Ваши <em>впечатления</em>
+            </h2>
+
           </div>
-          <button class="btn btn-dark open-review">Оставить отзыв</button>
+
+          <button class="btn btn-dark open-review">
+            Оставить отзыв
+          </button>
+
         </div>
 
-        <div class="review-grid" id="reviewList">
+
+        <div
+          class="review-grid"
+          id="reviewList"
+        >
+
+
           <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>«Очень комфортная атмосфера и внимательное отношение. Результат получился даже лучше, чем я представляла!»</p>
-            <strong>Анастасия</strong>
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              «Очень комфортная атмосфера
+              и внимательное отношение.
+              Результат получился даже лучше,
+              чем я представляла!»
+            </p>
+
+            <strong>
+              Анастасия
+            </strong>
+
           </article>
+
+
           <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>«Спасибо за аккуратную работу и помощь с выбором эскиза. Обязательно вернусь ещё!»</p>
-            <strong>Мария</strong>
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              «Спасибо за аккуратную работу
+              и помощь с выбором эскиза.
+              Обязательно вернусь ещё!»
+            </p>
+
+            <strong>
+              Мария
+            </strong>
+
           </article>
+
+
           <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>«Качество линий, детали и отношение — всё на высшем уровне. Очень доволен результатом.»</p>
-            <strong>Алексей</strong>
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              «Качество линий, детали
+              и отношение — всё на высшем уровне.
+              Очень доволен результатом.»
+            </p>
+
+            <strong>
+              Алексей
+            </strong>
+
           </article>
+
+
         </div>
+
       </div>
+
     </section>
+
+
+    <!-- ==================================
+         CTA
+    ================================== -->
 
     <section class="cta">
+
       <div class="container cta-content">
-        <p class="eyebrow">Есть идея?</p>
-        <h2>Давай создадим<br><em>что-то особенное.</em></h2>
-        <button class="btn open-booking">Записаться на консультацию</button>
+
+        <p class="eyebrow">
+          LELKINO TATOO
+        </p>
+
+        <h2>
+          Давай создадим<br>
+          <em>что-то особенное.</em>
+        </h2>
+
+        <button class="btn open-booking">
+          Записаться на консультацию
+        </button>
+
       </div>
+
     </section>
+
+
   </main>
 
+
+  <!-- ==================================
+       FOOTER
+  ================================== -->
+
   <footer>
+
     <div class="container footer-grid">
+
+
       <div>
-        <a class="brand" href="#top">TAT<span>TOO</span></a>
-        <p>Авторские татуировки<br>по вашей идее.</p>
+
+        <a
+          class="brand"
+          href="#top"
+        >
+          LELKINO <span>TATOO</span>
+        </a>
+
+        <p>
+          Авторские татуировки<br>
+          по вашей идее.
+        </p>
+
       </div>
+
+
       <div>
-        <h4>Навигация</h4>
-        <a href="#about">О мастере</a>
-        <a href="#works">Работы</a>
-        <a href="#reviews">Отзывы</a>
+
+        <h4>
+          Навигация
+        </h4>
+
+        <a href="#about">
+          О мастере
+        </a>
+
+        <a href="#works">
+          Работы
+        </a>
+
+        <a href="#styles">
+          Стили
+        </a>
+
+        <a href="#studio">
+          Студия
+        </a>
+
+        <a href="#reviews">
+          Отзывы
+        </a>
+
       </div>
+
+
       <div>
-        <h4>Контакты</h4>
-        <p>Ваш город</p>
-        <p>+7 (000) 000-00-00</p>
-        <p>Instagram / Telegram</p>
+
+        <h4>
+          Контакты
+        </h4>
+
+        <p>
+          Ваш город
+        </p>
+
+        <p>
+          +7 (000) 000-00-00
+        </p>
+
+        <p>
+          Instagram / Telegram
+        </p>
+
       </div>
+
+
     </div>
-    <div class="container copyright">© <span id="year"></span> TATTOO. Все права защищены.</div>
+
+
+    <div class="container copyright">
+
+      © <span id="year"></span>
+      LELKINO TATOO.
+      Все права защищены.
+
+    </div>
+
   </footer>
 
-  <div class="modal" id="bookingModal" aria-hidden="true">
+
+  <!-- ==================================
+       BOOKING MODAL
+  ================================== -->
+
+  <div
+    class="modal"
+    id="bookingModal"
+    aria-hidden="true"
+  >
+
     <div class="modal-box">
-      <button class="modal-close" data-close="bookingModal" aria-label="Закрыть">×</button>
-      <p class="eyebrow">Онлайн-запись</p>
-      <h2>Расскажите о <em>вашей идее</em></h2>
+
+      <button
+        class="modal-close"
+        data-close="bookingModal"
+        aria-label="Закрыть"
+      >
+        ×
+      </button>
+
+
+      <p class="eyebrow">
+        Онлайн-запись
+      </p>
+
+      <h2>
+        Расскажите о
+        <em>вашей идее</em>
+      </h2>
+
+
       <form id="bookingForm">
+
+
         <div class="form-row">
-          <label>Имя<input type="text" name="name" required placeholder="Ваше имя"></label>
-          <label>Телефон<input type="tel" name="phone" required placeholder="+7 (___) ___-__-__"></label>
-        </div>
-        <div class="form-row">
-          <label>Желаемая дата<input type="date" name="date"></label>
-          <label>Стиль
-            <select name="style">
-              <option>Минимализм</option>
-              <option>Надписи</option>
-              <option>Флористика</option>
-              <option>Графика</option>
-              <option>Не знаю, нужна консультация</option>
-            </select>
+
+          <label>
+
+            Имя
+
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Ваше имя"
+            >
+
           </label>
+
+
+          <label>
+
+            Телефон
+
+            <input
+              type="tel"
+              name="phone"
+              required
+              placeholder="+7 (___) ___-__-__"
+            >
+
+          </label>
+
         </div>
-        <label>Опишите вашу идею<textarea name="idea" rows="4" placeholder="Размер, место, идея..."></textarea></label>
-        <label>Референс (необязательно)<input type="file" name="reference" accept="image/*"></label>
-        <button class="btn" type="submit">Отправить заявку</button>
-        <p class="form-note">Демо-версия: заявка отображается как успешно отправленная. Для реальной отправки подключается Telegram, WhatsApp, email или база данных.</p>
-      </form>
-      <div class="success-message" id="bookingSuccess">Спасибо! Ваша заявка принята. Я свяжусь с вами для уточнения деталей. ✦</div>
-    </div>
-  </div>
 
-  <div class="modal" id="reviewModal" aria-hidden="true">
-    <div class="modal-box small-modal">
-      <button class="modal-close" data-close="reviewModal" aria-label="Закрыть">×</button>
-      <p class="eyebrow">Ваш отзыв</p>
-      <h2>Поделитесь <em>впечатлением</em></h2>
-      <form id="reviewForm">
-        <label>Ваше имя<input type="text" id="reviewName" required placeholder="Например, Анна"></label>
-        <label>Оценка
-          <select id="reviewRating">
-            <option value="5">★★★★★ — 5</option>
-            <option value="4">★★★★☆ — 4</option>
-            <option value="3">★★★☆☆ — 3</option>
-            <option value="2">★★☆☆☆ — 2</option>
-            <option value="1">★☆☆☆☆ — 1</option>
-          </select>
+
+        <div class="form-row">
+
+          <label>
+
+            Желаемая дата
+
+            <input
+              type="date"
+              name="date"
+            >
+
+          </label>
+
+
+          <label>
+
+            Стиль
+
+            <select name="style">
+
+              <option>
+                Минимализм
+              </option>
+
+              <option>
+                Надписи
+              </option>
+
+              <option>
+                Флористика
+              </option>
+
+              <option>
+                Графика
+              </option>
+
+              <option>
+                Не знаю, нужна консультация
+              </option>
+
+            </select>
+
+          </label>
+
+        </div>
+
+
+        <label>
+
+          Опишите вашу идею
+
+          <textarea
+            name="idea"
+            rows="4"
+            required
+            placeholder="Размер, место, идея..."
+          ></textarea>
+
         </label>
-        <label>Ваш отзыв<textarea id="reviewText" rows="5" required placeholder="Расскажите, как всё прошло..."></textarea></label>
-        <button class="btn" type="submit">Опубликовать отзыв</button>
+
+
+        <label>
+
+          Референс (необязательно)
+
+          <input
+            type="file"
+            name="reference"
+            accept="image/*"
+          >
+
+        </label>
+
+
+        <button
+          class="btn"
+          type="submit"
+        >
+          Отправить заявку
+        </button>
+
+
+        <p class="form-note">
+          После отправки заявки мастер свяжется
+          с вами для уточнения деталей.
+        </p>
+
+
       </form>
+
+
+      <div
+        class="success-message"
+        id="bookingSuccess"
+      >
+        Спасибо! Ваша заявка принята.
+        Я свяжусь с вами для уточнения деталей. ✦
+      </div>
+
+
     </div>
+
   </div>
 
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" aria-label="Закрыть">×</button>
-    <img src="" alt="">
+
+  <!-- ==================================
+       REVIEW MODAL
+  ================================== -->
+
+  <div
+    class="modal"
+    id="reviewModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-box small-modal">
+
+
+      <button
+        class="modal-close"
+        data-close="reviewModal"
+        aria-label="Закрыть"
+      >
+        ×
+      </button>
+
+
+      <p class="eyebrow">
+        Ваш отзыв
+      </p>
+
+      <h2>
+        Поделитесь
+        <em>впечатлением</em>
+      </h2>
+
+
+      <form id="reviewForm">
+
+
+        <label>
+
+          Ваше имя
+
+          <input
+            type="text"
+            id="reviewName"
+            required
+            placeholder="Например, Анна"
+          >
+
+        </label>
+
+
+        <label>
+
+          Оценка
+
+          <select id="reviewRating">
+
+            <option value="5">
+              ★★★★★ — 5
+            </option>
+
+            <option value="4">
+              ★★★★☆ — 4
+            </option>
+
+            <option value="3">
+              ★★★☆☆ — 3
+            </option>
+
+            <option value="2">
+              ★★☆☆☆ — 2
+            </option>
+
+            <option value="1">
+              ★☆☆☆☆ — 1
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <label>
+
+          Ваш отзыв
+
+          <textarea
+            id="reviewText"
+            rows="5"
+            required
+            placeholder="Расскажите, как всё прошло..."
+          ></textarea>
+
+        </label>
+
+
+        <button
+          class="btn"
+          type="submit"
+        >
+          Опубликовать отзыв
+        </button>
+
+
+      </form>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================================
+       LIGHTBOX
+  ================================== -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+  >
+
+    <button
+      class="lightbox-close"
+      aria-label="Закрыть"
+    >
+      ×
+    </button>
+
+    <img
+      src=""
+      alt=""
+    >
+
     <p></p>
+
   </div>
 
-  <div class="toast" id="toast">Отзыв опубликован ✦</div>
+
+  <!-- ==================================
+       TOAST
+  ================================== -->
+
+  <div
+    class="toast"
+    id="toast"
+  >
+    Отзыв опубликован ✦
+  </div>
+
+
+  <!-- ==================================
+       JAVASCRIPT
+  ================================== -->
+
   <script src="script.js"></script>
+
+
+  <!-- ==================================
+       YEAR
+  ================================== -->
+
+  <script>
+
+    const yearElement = document.getElementById("year");
+
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+
+  </script>
+
+
 </body>
 </html>
