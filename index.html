@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Тату-студия — авторские татуировки, минимализм, надписи, графика и флористика.">
+  <title>TATTOO — Авторская тату-студия</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header" id="top">
+    <div class="container nav">
+      <a class="brand" href="#top">TAT<span>TOO</span></a>
+      <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+      <nav class="nav-links">
+        <a href="#about">О мастере</a>
+        <a href="#works">Работы</a>
+        <a href="#styles">Стили</a>
+        <a href="#studio">Студия</a>
+        <a href="#reviews">Отзывы</a>
+      </nav>
+      <button class="btn btn-small open-booking">Записаться</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Авторская татуировка</p>
+        <h1>Твоя история.<br><em>Твой стиль.</em></h1>
+        <p class="hero-text">Создаю татуировки, которые становятся частью тебя — от тонких надписей до графики и нежной флористики.</p>
+        <div class="hero-actions">
+          <button class="btn open-booking">Записаться на сеанс</button>
+          <a class="btn btn-ghost" href="#works">Смотреть работы</a>
+        </div>
+      </div>
+      <div class="hero-scroll">листай вниз <span>↓</span></div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container about-grid">
+        <div class="about-photo reveal">
+          <img src="assets/images/artist-studio.jpg" alt="Тату-мастер в студии">
+        </div>
+        <div class="about-content reveal">
+          <p class="eyebrow">О мастере</p>
+          <h2>Татуировка — это<br><em>искусство на коже.</em></h2>
+          <p>Я создаю индивидуальные эскизы и помогаю превратить вашу идею в татуировку, которая будет радовать вас долгие годы.</p>
+          <p>Для меня важны чистота линий, гармоничная композиция и внимательное отношение к каждой детали.</p>
+          <div class="stats">
+            <div><strong>01</strong><span>индивидуальный подход</span></div>
+            <div><strong>100%</strong><span>стерильность и безопасность</span></div>
+            <div><strong>∞</strong><span>идей для вдохновения</span></div>
+          </div>
+          <button class="text-link open-booking">Обсудить идею <span>→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="works section section-dark" id="works">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Портфолио</p>
+            <h2>Мои <em>работы</em></h2>
+          </div>
+          <p>Нажмите на фотографию, чтобы рассмотреть работу ближе.</p>
+        </div>
+
+        <div class="gallery">
+          <button class="gallery-item large" data-full="assets/images/tattoo-lion.jpg" data-caption="Графика — лев">
+            <img src="assets/images/tattoo-lion.jpg" alt="Татуировка льва">
+            <span>Графика</span>
+          </button>
+          <button class="gallery-item" data-full="assets/images/tattoo-lettering-1.jpg" data-caption="Тонкая надпись">
+            <img src="assets/images/tattoo-lettering-1.jpg" alt="Татуировка с надписью">
+            <span>Надписи</span>
+          </button>
+          <button class="gallery-item" data-full="assets/images/tattoo-flower-1.jpg" data-caption="Флористика">
+            <img src="assets/images/tattoo-flower-1.jpg" alt="Цветочная татуировка">
+            <span>Флористика</span>
+          </button>
+          <button class="gallery-item" data-full="assets/images/tattoo-logo-chest.jpg" data-caption="Индивидуальный дизайн">
+            <img src="assets/images/tattoo-logo-chest.jpg" alt="Татуировка на груди">
+            <span>Индивидуальный дизайн</span>
+          </button>
+          <button class="gallery-item wide" data-full="assets/images/tattoo-flower-2.jpg" data-caption="Флористика — композиция">
+            <img src="assets/images/tattoo-flower-2.jpg" alt="Цветочная татуировка на плече">
+            <span>Флористика</span>
+          </button>
+          <button class="gallery-item" data-full="assets/images/tattoo-teacup.jpg" data-caption="Минималистичная татуировка">
+            <img src="assets/images/tattoo-teacup.jpg" alt="Минималистичная татуировка чашки">
+            <span>Минимализм</span>
+          </button>
+          <button class="gallery-item" data-full="assets/images/tattoo-lettering-2.jpg" data-caption="Надпись">
+            <img src="assets/images/tattoo-lettering-2.jpg" alt="Татуировка с надписью на руке">
+            <span>Надписи</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="styles section" id="styles">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Направления</p>
+            <h2>Твой <em>стиль</em></h2>
+          </div>
+        </div>
+
+        <div class="style-list reveal">
+          <article><span>01</span><h3>Минимализм</h3><p>Лёгкие линии, маленькие символы и аккуратные детали.</p></article>
+          <article><span>02</span><h3>Надписи</h3><p>Имена, важные фразы и индивидуальный подбор шрифта.</p></article>
+          <article><span>03</span><h3>Флористика</h3><p>Цветы и растительные композиции, повторяющие линии тела.</p></article>
+          <article><span>04</span><h3>Графика</h3><p>Контрастные, выразительные и детализированные работы.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="studio section section-dark" id="studio">
+      <div class="container studio-grid">
+        <div class="studio-content reveal">
+          <p class="eyebrow">Моё пространство</p>
+          <h2>Комфорт.<br><em>Чистота. Атмосфера.</em></h2>
+          <p>Уютное рабочее пространство, где соблюдаются правила гигиены и создаётся спокойная атмосфера для каждого клиента.</p>
+          <button class="btn open-booking">Записаться</button>
+        </div>
+        <div class="studio-photos reveal">
+          <img class="studio-main" src="assets/images/studio-chair.jpg" alt="Рабочее место тату-мастера">
+          <img class="studio-small" src="assets/images/studio-logo.jpg" alt="Логотип тату-студии">
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews section" id="reviews">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Отзывы клиентов</p>
+            <h2>Ваши <em>впечатления</em></h2>
+          </div>
+          <button class="btn btn-dark open-review">Оставить отзыв</button>
+        </div>
+
+        <div class="review-grid" id="reviewList">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>«Очень комфортная атмосфера и внимательное отношение. Результат получился даже лучше, чем я представляла!»</p>
+            <strong>Анастасия</strong>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>«Спасибо за аккуратную работу и помощь с выбором эскиза. Обязательно вернусь ещё!»</p>
+            <strong>Мария</strong>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>«Качество линий, детали и отношение — всё на высшем уровне. Очень доволен результатом.»</p>
+            <strong>Алексей</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-content">
+        <p class="eyebrow">Есть идея?</p>
+        <h2>Давай создадим<br><em>что-то особенное.</em></h2>
+        <button class="btn open-booking">Записаться на консультацию</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#top">TAT<span>TOO</span></a>
+        <p>Авторские татуировки<br>по вашей идее.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <a href="#about">О мастере</a>
+        <a href="#works">Работы</a>
+        <a href="#reviews">Отзывы</a>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <p>Ваш город</p>
+        <p>+7 (000) 000-00-00</p>
+        <p>Instagram / Telegram</p>
+      </div>
+    </div>
+    <div class="container copyright">© <span id="year"></span> TATTOO. Все права защищены.</div>
+  </footer>
+
+  <div class="modal" id="bookingModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" data-close="bookingModal" aria-label="Закрыть">×</button>
+      <p class="eyebrow">Онлайн-запись</p>
+      <h2>Расскажите о <em>вашей идее</em></h2>
+      <form id="bookingForm">
+        <div class="form-row">
+          <label>Имя<input type="text" name="name" required placeholder="Ваше имя"></label>
+          <label>Телефон<input type="tel" name="phone" required placeholder="+7 (___) ___-__-__"></label>
+        </div>
+        <div class="form-row">
+          <label>Желаемая дата<input type="date" name="date"></label>
+          <label>Стиль
+            <select name="style">
+              <option>Минимализм</option>
+              <option>Надписи</option>
+              <option>Флористика</option>
+              <option>Графика</option>
+              <option>Не знаю, нужна консультация</option>
+            </select>
+          </label>
+        </div>
+        <label>Опишите вашу идею<textarea name="idea" rows="4" placeholder="Размер, место, идея..."></textarea></label>
+        <label>Референс (необязательно)<input type="file" name="reference" accept="image/*"></label>
+        <button class="btn" type="submit">Отправить заявку</button>
+        <p class="form-note">Демо-версия: заявка отображается как успешно отправленная. Для реальной отправки подключается Telegram, WhatsApp, email или база данных.</p>
+      </form>
+      <div class="success-message" id="bookingSuccess">Спасибо! Ваша заявка принята. Я свяжусь с вами для уточнения деталей. ✦</div>
+    </div>
+  </div>
+
+  <div class="modal" id="reviewModal" aria-hidden="true">
+    <div class="modal-box small-modal">
+      <button class="modal-close" data-close="reviewModal" aria-label="Закрыть">×</button>
+      <p class="eyebrow">Ваш отзыв</p>
+      <h2>Поделитесь <em>впечатлением</em></h2>
+      <form id="reviewForm">
+        <label>Ваше имя<input type="text" id="reviewName" required placeholder="Например, Анна"></label>
+        <label>Оценка
+          <select id="reviewRating">
+            <option value="5">★★★★★ — 5</option>
+            <option value="4">★★★★☆ — 4</option>
+            <option value="3">★★★☆☆ — 3</option>
+            <option value="2">★★☆☆☆ — 2</option>
+            <option value="1">★☆☆☆☆ — 1</option>
+          </select>
+        </label>
+        <label>Ваш отзыв<textarea id="reviewText" rows="5" required placeholder="Расскажите, как всё прошло..."></textarea></label>
+        <button class="btn" type="submit">Опубликовать отзыв</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Закрыть">×</button>
+    <img src="" alt="">
+    <p></p>
+  </div>
+
+  <div class="toast" id="toast">Отзыв опубликован ✦</div>
+  <script src="script.js"></script>
+</body>
+</html>
